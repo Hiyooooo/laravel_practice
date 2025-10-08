@@ -20,6 +20,8 @@
 
 
 
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
@@ -51,4 +53,8 @@ Route::get('/classrooms', [ClassroomController::class, 'classrooms'])->name('cla
 Route::resource('datasiswa', DataSiswaController::class)->names([
     'index' => 'datasiswa',
 ]);
+
+// Rute untuk Halaman Teacher
+Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers');
+Route::get('/subjects', [SubjectController::class, 'subjects'])->name('subjects');
 

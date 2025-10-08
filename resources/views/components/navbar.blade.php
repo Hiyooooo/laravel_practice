@@ -21,6 +21,8 @@ nav bar
                 List</x-nav-link>
               <x-nav-link href="{{ route('classrooms') }}" :active="request()->routeIs('classrooms')">Classroom
                 List</x-nav-link>
+              <x-nav-link href="{{ route('teachers') }}" :active="request()->routeIs('teachers')">Teacher</x-nav-link>
+              <x-nav-link href="{{ route('subjects') }}" :active="request()->routeIs('subjects')">Subject</x-nav-link>
               <!-- <a href="/kontak" 
                 class="{{ request()->is('kontak') ? "bg-gray-950/50 text-white" : "text-gray-300 hover:bg-white/5 hover:text-white" }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white">Contact</a>
               <a href="/profil" 
