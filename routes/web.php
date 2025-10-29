@@ -57,4 +57,5 @@ Route::resource('datasiswa', DataSiswaController::class)->names([
 // Rute untuk Halaman Teacher
 Route::get('/teachers', [TeacherController::class, 'teachers'])->name('teachers');
 Route::get('/subjects', [SubjectController::class, 'subjects'])->name('subjects');
+Route::view('/dashboard', 'dashboard')->name('dashboard');
 
