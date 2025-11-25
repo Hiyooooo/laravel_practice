@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->date('birthdate');
             $table->integer('classroom_id');
-            // $table->string('grade');
+            $table->string('grade');
             $table->string('address');
             $table->string('phone');
             $table->timestamps();

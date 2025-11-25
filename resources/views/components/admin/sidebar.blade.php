@@ -1,4 +1,3 @@
-{{-- resources/views/components/admin/sidebar.blade.php --}}
 <aside
     class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidenav" id="drawer-navigation">
@@ -16,27 +15,27 @@
             </li>
 
             <li>
-                <x-admin.side-link href="{{ url('/datasiswa') }}">
+                <x-admin.side-link href="{{ url('/admin/datasiswa') }}">
                     <span class="ml-0">Students</span>
                 </x-admin.side-link>
             </li>
             <li>
-                <x-admin.side-link href="{{ url('/classroom') }}">
+                <x-admin.side-link href="{{ url('/admin/classroom') }}">
                     <span class="ml-0">Classroom</span>
                 </x-admin.side-link>
             </li>
             <li>
-                <x-admin.side-link href="{{ url('/guardians') }}">
+                <x-admin.side-link href="{{ url('/admin/guardian') }}">
                     <span class="ml-0">Guardians</span>
                 </x-admin.side-link>
             </li>
             <li>
-                <x-admin.side-link href="{{ url('/teachers') }}">
+                <x-admin.side-link href="{{ url('/admin/teacher') }}">
                     <span class="ml-0">Teachers</span>
                 </x-admin.side-link>
             </li>
             <li>
-                <x-admin.side-link href="{{ url('/subjects') }}">
+                <x-admin.side-link href="{{ url('/admin/subjects') }}">
                     <span class="ml-0">Subjects</span>
                 </x-admin.side-link>
             </li>

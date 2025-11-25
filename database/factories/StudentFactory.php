@@ -22,7 +22,7 @@ class StudentFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'birthdate' => $this->faker->date(),
             'classroom_id' => Classroom::factory(),
-            // 'grade' => $this->faker->randomElement(['11 PPLG 1', '11 PPLG 2', '11 PPLG 3', '11 PPLG 4', '11 PPLG 5']),
+            'grade' => $this->faker->randomElement(['11 PPLG 1', '11 PPLG 2', '11 PPLG 3', '11 PPLG 4', '11 PPLG 5']),
             'address' => $this->faker->address(),
             'phone' => $this->faker->phoneNumber(),
         ];

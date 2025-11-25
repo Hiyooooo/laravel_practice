@@ -1,4 +1,3 @@
-{{-- resources/views/components/admin/side-link.blade.php --}}
 @props(['href' => '#', 'active' => false])
 
 @php

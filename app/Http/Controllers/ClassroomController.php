@@ -16,4 +16,14 @@ class ClassroomController extends Controller
         ]);
     }
 
+    public function adminIndex()
+    {
+        $classroom = Classroom::all();
+
+        // Mengarah ke resources/views/admin/classroom.blade.php
+        return view('components.admin.classroom', [
+            'title' => 'Data Classroom (Admin)',
+            'classroom' => $classroom
+        ]);
+    }
 }
