@@ -9,9 +9,27 @@ use App\Models\Classroom;
 
 class AdminStudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $datasiswa = Student::with('classroom')->paginate(10);
+        $search = $request->search;
+
+        $datasiswa = Student::with('classroom')
+            ->when($search, function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%")
+                        ->orWhere('email', 'like', "%{$search}%")
+                        ->orWhere('birthdate', 'like', "%{$search}%") // betulin typo
+                        ->orWhere('grade', 'like', "%{$search}%")
+                        ->orWhere('address', 'like', "%{$search}%")
+                        ->orWhere('phone', 'like', "%{$search}%")
+                        ->orWhereHas('classroom', function ($qc) use ($search) {
+                            $qc->where('name', 'like', "%{$search}%");
+                        });
+                });
+            })
+            ->paginate(10)
+            ->withQueryString();
+
         $classrooms = Classroom::all();
 
         return view('admin.student.index', [
@@ -20,6 +38,7 @@ class AdminStudentController extends Controller
             'classrooms' => $classrooms,
         ]);
     }
+
 
     public function store(Request $request)
     {

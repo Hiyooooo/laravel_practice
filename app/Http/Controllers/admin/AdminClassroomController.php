@@ -8,16 +8,30 @@ use Illuminate\Http\Request;
 
 class AdminClassroomController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $classrooms = Classroom::with('students')->paginate(10);
+        $search = $request->get('search');
+
+        $classrooms = Classroom::query()
+            ->with('students')
+            ->when($search, function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%")
+                        ->orWhereHas('students', function ($s) use ($search) {
+                            $s->where('name', 'like', "%{$search}%")
+                                ->orWhere('email', 'like', "%{$search}%")
+                                ->orWhere('phone', 'like', "%{$search}%");
+                        });
+                });
+            })
+            ->paginate(10)
+            ->withQueryString();
 
         return view('admin.classroom.index', [
             'title' => 'Data Classrooms',
             'classrooms' => $classrooms,
         ]);
     }
-
     public function store(Request $request)
     {
         $validated = $request->validate([

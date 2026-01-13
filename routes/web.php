@@ -34,8 +34,7 @@ use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\Admin\AdminGuardianController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminTeacherController;
-
-
+use App\Http\Controllers\LoginController;
 // Rute untuk Halaman Utama
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -127,3 +126,6 @@ Route::post('/admin/subjects', [AdminSubjectController::class, 'store'])
 
 Route::put('/admin/subjects/{id}', [AdminSubjectController::class, 'update'])
     ->name('subject.update');
+
+// Rute untuk halaman login
+Route::get('/login', [LoginController::class, 'login'])->name('login');
